@@ -1,0 +1,181 @@
+.navbar {
+    --py-navbar: #{spacer(4)};
+    --px-navbar: #{spacer(2.5)};
+    --px-item: #{spacer(2)};
+    --width-logo: 130px;
+    position: relative;
+    z-index: 99;
+
+    .navbar-holder {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: {
+            top: var(--py-navbar);
+            right: var(--px-navbar);
+            bottom: var(--py-navbar);
+            left: var(--px-navbar);
+        }
+        max-width: var(--max-container-width);
+        margin: {
+            right: auto;
+            left: auto;
+        }
+        min-height: var(--height-navbar);
+
+        .btn {
+            margin: 0;
+        }
+    }
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        max-width: var(--width-logo);
+
+        .brand {
+            width: 100%;
+            transition: color var(--speed-default) var(--cubic-bezier-2);
+        }
+    }
+
+    .navbar__menu {
+        max-width: calc(var(--max-container-width) - ((var(--width-logo) + var(--px-navbar)) * 2));
+        border-radius: 99999px;
+        background-color: rgba(color(ash), .8);
+        position: fixed;
+        top: spacer(5);
+        left: 50%;
+        transform: translateX(-50%) !important; /* stylelint-disable-line declaration-no-important */
+        z-index: 99;
+        backdrop-filter: blur(5px);
+        padding: {
+            right: spacer(3);
+            left: spacer(3);
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    a {
+                        color: rgba(color(milk), .3);
+                    }
+                }
+            }
+        }
+
+        a {
+            display: block;
+            padding: 14px var(--px-item);
+            font-weight: 600;
+            font-size: 15px;
+            color: color(milk);
+            position: relative;
+
+            &::after {
+                width: calc(100% - (var(--px-item) * 2));
+                height: 1px;
+                background-color: transparent;
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: var(--px-item);
+            }
+
+            @media (hover: hover) and (pointer: fine) {
+                &::after {
+                    transition: background-color var(--speed-default) var(--cubic-bezier-2);
+                }
+
+                &:hover {
+                    color: color(milk) !important; /* stylelint-disable-line declaration-no-important */
+
+                    &::after {
+                        background-color: color(milk);
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-right {
+        display: flex;
+        gap: spacer(4);
+
+        @include media-breakpoint-down(lg) {
+            padding: 0;
+            position: fixed;
+            top: spacer(3);
+            right: spacer(2.5);
+            z-index: 99;
+            gap: spacer(2.5);
+        }
+    }
+
+    .navbar-toggler {
+        border-radius: 99999px;
+        padding: 6px 16px !important; /* stylelint-disable-line declaration-no-important */
+
+        .navbar-toggler__open {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            &::before {
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                margin-right: 6px;
+                border-radius: 50%;
+                background-color: color(purple);
+                content: '';
+            }
+        }
+
+        .navbar-toggler__close {
+            display: none;
+        }
+
+        body.menu-is-open & {
+            background-color: color(purple);
+            color: color(barbie);
+
+            .navbar-toggler__open {
+                display: none;
+            }
+
+            .navbar-toggler__close {
+                display: block;
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .navbar-toggler__open {
+                &::before {
+                    transition: background-color var(--speed-default) var(--cubic-bezier-2);
+                }
+            }
+
+            &:hover {
+                span {
+                    &::before {
+                        background-color: color(barbie);
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(sm) {
+        --width-logo: 255px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        --py-navbar: #{spacer(6)};
+        --px-navbar: #{spacer(6)};
+    }
+}

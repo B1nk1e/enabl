@@ -1,0 +1,101 @@
+$app-spacer: 8px;
+
+:root {
+	// Spacer
+	--spacer: #{$app-spacer};
+
+    // Size
+    --size-custom-control-indicator: 18px;
+    --size-input: 60px;
+
+    // Width
+    --width-grid-gutter: #{$grid-gutter-width};
+    --width-grid-gutter-half: calc(#{$grid-gutter-width} * .5);
+    --max-container-width: 1820px;
+
+    // Height
+    --height-navbar: 84px;
+
+    // Margin
+    --margin-section: calc(var(--spacer) * 8);
+    --margin-highlight: calc(var(--spacer) * 5);
+
+    // Padding
+    --padding-button: 5px 15px;
+    --padding-input: 20px;
+
+    // Font size
+    --font-size-base: 15px;
+    --font-size-input: 15px;
+    
+    // Line height
+    --line-height-base: 25px;
+
+    // Border radius
+    --border-radius: var(--spacer);
+    --border-radius-large: calc(var(--spacer) * 3);
+
+    // Transition
+    --speed-fast: .125s;
+    --speed-default: .3s;
+    --speed-slow: .6s;
+    --speed-sluggish: 1s;
+    --speed-snail: 2s;
+    --cubic-bezier: cubic-bezier(.05, .69, .14, 1);
+    --cubic-bezier-2: cubic-bezier(.215, .61, .355, 1);
+    --cubic-bezier-3: cubic-bezier(.45, .13, .33, .97);
+    --cubic-bezier-4: cubic-bezier(.34, 1.56, .64, 1);
+    --cubic-bezier-5: cubic-bezier(.19, 1, .22, 1);
+
+    @include media-breakpoint-up(sm) {
+        // Height
+        --height-navbar: 93px;
+    }
+
+    @include media-breakpoint-up(md) {
+        // Width
+        --width-grid-gutter: #{$grid-gutter-width-lg};
+        --width-grid-gutter-half: calc(#{$grid-gutter-width-lg} * .5);
+    }
+
+    @include media-breakpoint-up(lg) {
+        // Margin
+        --margin-section: calc(var(--spacer) * 16);
+        --margin-highlight: calc(var(--spacer) * 12);
+
+        // Border radius
+        --border-radius-large: calc(var(--spacer) * 5);
+
+        // Font size
+        --font-size-base: 16px;
+        --font-size-input: 16px;
+
+        // Line height
+        --line-height-base: 26px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        // Height
+        --height-navbar: 140px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        // Margin
+        --margin-section: calc(var(--spacer) * 22);
+        --margin-highlight: calc(var(--spacer) * 20);
+
+        // Font size
+        --font-size-base: 18px;
+
+        // Line height
+        --line-height-base: 32px;
+    }
+
+    @include media-breakpoint-up(fhd) {
+        //
+    }
+}
+
+// Fonts
+$font-path: '../fonts';
+$font-family-base: 'Plain', sans-serif;

@@ -1,0 +1,62 @@
+.section--text-specs {
+    --py-spec-item: #{spacer(2)};
+    position: relative;
+
+    .text-specs__title {
+        margin-bottom: spacer(3);
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: spacer(5);
+        }
+    }
+
+    .text-specs__list {
+        @include media-breakpoint-down(md) {
+            margin-top: spacer(5);
+        }
+    }
+
+    .text-specs__item {
+        display: flex;
+        padding-bottom: var(--py-spec-item);
+        font: {
+            size: clamp-calculator(16, 20);
+            weight: 600;
+        }
+        letter-spacing: calc(-1 * #{calc(3 / 100 * clamp-calculator(16, 20))});
+
+        span {
+            flex: 1;
+            color: color(milk);
+
+            &:first-child {
+                flex: 0 0 33.333%;
+                max-width: 33.333%;
+                color: color(concrete);
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            a {
+                transition: color var(--speed-default) var(--cubic-bezier-2);
+
+                &:hover {
+                    color: color(barbie);
+                }
+            }
+        }
+
+        &:not(:first-child) {
+            border-top: 1px solid rgba(color(milk), .2);
+            padding-top: var(--py-spec-item);
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --py-spec-item: #{spacer(3)};
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --py-spec-item: #{spacer(4)};
+    }
+}

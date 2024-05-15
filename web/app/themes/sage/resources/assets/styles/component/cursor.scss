@@ -1,0 +1,53 @@
+.cursor {
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    * {
+        cursor: none;
+
+        &:hover {
+            cursor: none !important;  /* stylelint-disable-line declaration-no-important */
+        }
+    }
+
+    .cursor {
+        --cursor-size: #{spacer(2.5)};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--cursor-size);
+        height: var(--cursor-size);
+        border: 2px solid color(barbie);
+        border-radius: 100%;
+        background-color: color(barbie);
+        pointer-events: none;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        z-index: 999999;
+        transition: height var(--speed-default) var(--cubic-bezier-2), width var(--speed-default) var(--cubic-bezier-2), background-color var(--speed-default) var(--cubic-bezier-2);
+
+        span {
+            opacity: 0;
+            font-weight: 600;
+            font-size: 16px;
+            color: color(purple);
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: opacity var(--speed-default) var(--cubic-bezier-2);
+        }
+
+        &.hover {
+            --cursor-size: #{spacer(4)};
+            background-color: transparent;
+        }
+
+        &.drag-me {
+            --cursor-size: #{spacer(14)};
+
+            span {
+                opacity: 1;
+            }
+        }
+    }
+}

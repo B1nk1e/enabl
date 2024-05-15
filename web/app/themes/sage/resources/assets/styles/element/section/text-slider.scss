@@ -1,0 +1,95 @@
+.section--text-slider {
+    --pb-intro: #{spacer(10)};
+
+    .text-slider__intro {
+        border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+        background-color: color(milk);
+        color: color(cola);
+        padding: {
+            top: var(--margin-section);
+            bottom: calc(var(--pb-intro));
+        }
+
+        @include media-breakpoint-up(lg) {
+            border-radius: var(--border-radius-large);
+        }
+    }
+
+    .text-slider__wrapper {
+        .tns-ovh {
+            overflow: visible;
+        }
+    }
+
+    .text-slider__slider {
+        display: flex;
+        align-items: center;
+    }
+
+    .text-slider__item {
+        figure {
+            overflow: hidden;
+            display: block;
+            border-radius: var(--border-radius);
+            position: relative;
+
+            picture,
+            img {
+                @include fill-w-h(true);
+            }
+        }
+
+        &:nth-child(odd) {
+            figure {
+                @include responsive-ratio(708, 600);
+            }
+        }
+
+        &:nth-child(even) {
+            figure {
+                @include responsive-ratio(708, 810);
+            }
+        }
+    }
+
+    &.has-slider {
+        .text-slider__intro {
+            border-radius: 0;
+            padding-bottom: var(--pb-intro);
+        }
+
+        .text-slider__container {
+            position: relative;
+            
+            &::before {
+                width: 100%;
+                height: 50%;
+                border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
+                background-color: color(milk);
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
+        }
+    }
+
+    &.section--about-steps {
+        --pb-intro: var(--margin-section);
+
+        .text-slider__intro {
+            border-radius: 0;
+            background-color: color(ash);
+            color: color(milk);
+        }
+
+        .text-slider__container {
+            position: relative;
+            
+            &::before {
+                background-color: color(ash);
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.pointer {
+    position: absolute;
+
+    .pointer__inner {
+        padding: spacer(.25) spacer();
+        background-color: var(--pointer-color);
+        font-size: 14px;
+
+        svg {
+            position: absolute;
+            right: 100%;
+            bottom: 100%;
+        }
+    }
+}

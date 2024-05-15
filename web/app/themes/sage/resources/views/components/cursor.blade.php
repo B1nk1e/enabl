@@ -1,0 +1,1 @@
+<div class="cursor"><span>{{ __('Drag me', 'sage') }}</span></div>

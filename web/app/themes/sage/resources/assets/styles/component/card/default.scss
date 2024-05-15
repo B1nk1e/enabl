@@ -1,0 +1,12 @@
+.card {
+    position: relative;
+
+    .card-anchor {
+        @include fill-w-h;
+        z-index: 5;
+    }
+
+    .card-figure {
+        position: relative;
+    }
+}

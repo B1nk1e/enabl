@@ -1,0 +1,40 @@
+.reel {
+    --animation-speed: 90s;
+    --size-reel: 140px;
+    display: flex;
+    gap: spacer(5);
+    font: {
+        size: var(--size-reel);
+        weight: 600;
+    }
+    color: color(milk);
+    
+
+    .reel__track {
+        display: flex;
+        animation: scrollText var(--animation-speed) linear infinite;
+    }
+
+    .reel__item {
+        line-height: 1;
+        white-space: nowrap;
+
+        &::before {
+            display: inline-block;
+            content: ' ';
+        }
+    }
+
+    @keyframes scrollText {
+        from { transform: translateX(0%); }
+        to { transform: translateX(-50%); }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --size-reel: 180px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --size-reel: 220px;
+    }
+}

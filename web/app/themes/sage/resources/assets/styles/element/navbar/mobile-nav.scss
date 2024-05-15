@@ -1,0 +1,106 @@
+.mobile-nav {
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: var(--height-navbar);
+    background-color: color(milk);
+    color: color(cola);
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 98;
+    transition: opacity var(--speed-default) var(--cubic-bezier-2);
+
+    .mobile-nav__top {
+        overflow: auto;
+        height: calc(100dvh - (var(--height-navbar) + 177px)); /* stylelint-disable-line unit-no-unknown */
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    .nav-item {
+        display: block;
+    }
+
+    .nav-link {
+        display: block;
+        color: rgba(color(cola), .6);
+
+        &.current {
+            color: color(cola);
+        }
+        font: {
+            size: 34px;
+            weight: 600;
+        }
+        padding: {
+            top: spacer(2);
+            bottom: spacer(2);
+        }
+    }
+
+    .mobile-nav__address {
+        font-size: 14px;
+
+        span {
+            &:first-child {
+                display: block;
+            }
+        }
+        padding: {
+            top: spacer(3);
+            bottom: spacer(3);
+        }
+    }
+
+    .mobile-nav__title {
+        color: color(concrete);
+    }
+
+    .mobile-nav__bottom {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        .btn {
+            justify-content: center;
+            width: 100%;
+            margin: {
+                top: spacer(3);
+                bottom: spacer(3);
+            }
+        }
+    }
+
+    .mobile-nav__social {
+        display: flex;
+
+        a {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+
+            &:not(:first-child) {
+                border-left: 1px solid rgba(color(cola), .1);
+            }
+            padding: {
+                top: spacer(3.5);
+                bottom: spacer(3.5);
+            }
+            border: {
+                top: 1px solid rgba(color(cola), .1);
+                bottom: 1px solid rgba(color(cola), .1);
+            }
+        }
+    }
+
+    body.menu-is-open & {
+        pointer-events: all;
+    }
+}

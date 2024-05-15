@@ -1,0 +1,29 @@
+.section--vacancy-form {
+    --mb-vacancy-content: #{spacer(3)};
+    
+    .vacancy-form__content {
+        margin-bottom: var(--mb-vacancy-content);
+        text-align: center;
+    }
+
+    .vacancy-form__title {
+        margin-bottom: spacer(2);
+    }
+
+    .vacancy-form__text {
+        color: color(cow);
+    }
+
+    .gform_footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    @include media-breakpoint-up(lg) {
+        --mb-vacancy-content: #{spacer(5)};
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --mb-vacancy-content: #{spacer(7.5)};
+    }
+}

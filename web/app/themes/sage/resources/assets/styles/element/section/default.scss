@@ -1,0 +1,14 @@
+.section {
+    margin-bottom: var(--margin-section);
+    position: relative;
+
+    @each $name, $value in $colors {
+        &.bg--#{$name} {
+            padding: {
+                top: var(--margin-section);
+                bottom: var(--margin-section);
+            }
+            background-color: color($name);
+        }
+    }
+}

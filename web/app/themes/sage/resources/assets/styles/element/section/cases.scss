@@ -1,0 +1,124 @@
+.section--cases {
+    --gap-cases: #{spacer(2)};
+    --width-card: 100%;
+    --mt-highlight: #{spacer(7)};
+    --py-filter-btn: #{spacer(2)};
+
+    .cases__intro {
+        text-align: center;
+
+        .btn {
+            margin-top: spacer(4);
+
+            @include media-breakpoint-up(lg) {
+                margin-top: spacer(5);
+            }
+        }
+    }
+
+    .cases__highlight {
+        margin-top: var(--mt-highlight);
+        position: relative;
+
+        .reel {
+            position: absolute;
+            top: 46%;
+            z-index: 1;
+
+            @include media-breakpoint-up(xxl) {
+                top: 43%;
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            .cases__overview {
+                .card {
+                    &:last-child {
+                        margin-top: spacer(5);
+                    }
+                }
+            }
+        }
+    }
+
+    .cases__overview {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        position: relative;
+        z-index: 2;
+        gap: var(--gap-cases);
+
+        .card {
+            flex: 0 0 var(--width-card);
+            max-width: var(--width-card);
+        }
+    }
+
+    .container--cases {
+        margin-bottom: calc(var(--margin-section) / 2);
+    }
+
+    .cases-overview__intro {
+        @include media-breakpoint-down(sm) {
+            text-align: center;
+        }
+    }
+    
+    .cases-overview__title {
+        margin-bottom: spacer(2);
+        font-size: clamp-calculator(42, 72);
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: spacer(4);
+        }
+    }
+
+    .cases-overview__filter {
+        display: flex;
+        flex-direction: column;
+        margin-top: spacer(3);
+
+        .filter-btn {
+            padding: {
+                top: var(--py-filter-btn);
+                bottom: var(--py-filter-btn);
+            }
+            color: color(concrete);
+
+            &.active {
+                color: color(milk);
+            }
+
+            &:not(:first-child) {
+                border-top: 1px solid rgba(color(milk), .2);
+            }
+
+            @media (hover: hover) and (pointer: fine) {
+                transition: color var(--speed-default) var(--cubic-bezier-2);
+        
+                &:hover {
+                    color: color(milk);
+                }
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            margin-top: calc(-1 * var(--py-filter-btn));
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        --gap-cases: var(--width-grid-gutter);
+        --width-card: calc(50% - (var(--gap-cases) / 2));
+        --mt-highlight: #{spacer(10)};
+    }
+
+    @include media-breakpoint-up(lg) {
+        --py-filter-btn: #{spacer(3)};
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --mt-highlight: #{spacer(15)};
+    }
+}

@@ -1,0 +1,98 @@
+.card.card--case {
+    --py-card: #{spacer(3)};
+    --px-card: #{spacer(2.5)};
+    overflow: hidden;
+    position: relative;
+
+    .card-figure {
+        @include responsive-ratio(708, 550);
+        display: block;
+    }
+
+    .card-bg {
+        @include fill-w-h;
+        pointer-events: none;
+
+        picture,
+        img {
+            @include fill-w-h(true);
+        }
+    }
+
+    .card-image {
+        @include fill-w-h;
+        display: flex;
+        align-items: flex-end;
+        pointer-events: none;
+        transform: scale(.95);
+        transform-origin: bottom left;
+
+        picture,
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .card-content {
+        width: 100%;
+        padding: calc(var(--py-card) * 2) var(--px-card) var(--py-card);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 4;
+        
+        &::before {
+            @include fill-w-h;
+            background: linear-gradient(180deg, rgba(color(cola), 0) 0%, color(cola) 100%);
+            content: '';
+            z-index: -1;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: var(--py-card) var(--px-card);
+        }
+    }
+
+    .card-label {
+        color: rgba(color(milk), .5);
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .card-bg {
+            transform: scale(1);
+            transition: transform var(--speed-slow) var(--cubic-bezier-2);
+        }
+
+        .card-image {
+            transition: transform var(--speed-slow) var(--cubic-bezier-2);
+        }
+
+        .card-content {
+            transition: padding var(--speed-slow) var(--cubic-bezier-2);
+        }
+
+        &:hover {
+            .card-bg {
+                transform: scale(1.05);
+            }
+
+            .card-image {
+                transform: scale(.98);
+            }
+
+            .card-content {
+                padding-top: calc(var(--py-card) * 3);
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --py-card: #{spacer(5)};
+        --px-card: #{spacer(5)};
+    }
+}

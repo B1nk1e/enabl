@@ -1,0 +1,91 @@
+.section--text-list {
+    overflow: hidden;
+    margin-bottom: 0;
+    padding-bottom: var(--margin-section);
+    position: relative;
+
+    &::before {
+        width: 165vw;
+        height: 165vw;
+        background: radial-gradient(rgba(color(eminence), .6) 0%, rgba(color(eminence), 0) 85%);
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        right: 50%;
+        bottom: calc(-1 * var(--margin-section));
+        transform: translate(50%, 50%);
+        z-index: -1;
+
+        @include media-breakpoint-up(md) {
+            width: 120vw;
+            height: 120vw;
+        }
+
+        @include media-breakpoint-up(xl) {
+            width: 65vw;
+            height: 65vw;
+            background: radial-gradient(rgba(color(eminence), .6) 0%, rgba(color(eminence), 0) 75%);
+        }
+    }
+
+    .text-list__title {
+        margin-bottom: spacer(3);
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: spacer(5);
+        }
+    }
+
+    .text-list__list {
+        @include media-breakpoint-down(lg) {
+            margin-top: spacer(3);
+        }
+    }
+
+    .text-list__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(color(milk), .1);
+        font-size: 20px;
+        padding: {
+            top: spacer(4);
+            bottom: spacer(4);
+        }
+
+        i {
+            font-size: clamp-calculator(26, 42);
+            color: rgba(color(milk), .3);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            i {
+                transition: color var(--speed-default) var(--cubic-bezier-2);
+            }
+    
+            &:hover {
+                i {
+                    color: color(milk);
+                }
+            }
+        }
+
+        @include media-breakpoint-up(xxl) {
+            padding: {
+                top: spacer(5);
+                bottom: spacer(5);
+            }
+        }
+    }
+
+    ~ .section--cases {
+        padding-top: var(--margin-section);
+    }
+
+    @include media-breakpoint-down(lg) {
+        padding: {
+            top: var(--margin-section);
+            bottom: calc(var(--margin-section) * 1.75);
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.author {
+    display: flex;
+    align-items: center;
+    gap: spacer(2);
+    font-size: 14px;
+    color: color(cow);
+
+    .author__img {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+
+        picture,
+        img {
+            @include fill-w-h(true);
+        }
+    }
+
+    &.author--chatgpt {
+        .author__img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: color(chatgtp);
+            color: color(milk);
+        }
+    }
+}
+
+.author-wrapper {
+    display: flex;
+    gap: spacer(3);
+    margin-top: spacer(4);
+}

@@ -1,0 +1,136 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    outline: none;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: calc(-1 * (4 / 100 * 16px));
+    cursor: pointer;
+
+    &:disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+
+    &:not(.btn--text) {
+        border-radius: var(--border-radius);
+        background-color: color(milk);
+        color: color(cola);
+    }
+
+    &:not(.btn--social, .btn--text) {
+        padding: 13px 27px;
+        box-shadow: 0 4px 30px rgba(color(milk), .3);
+    }
+    
+
+    &.btn--secondary {
+        background-color: transparent;
+        color: rgba(color('milk'), .5);
+        box-shadow: none;
+    }
+
+    &.btn--ir {
+        i {
+            margin-left: spacer();
+        }
+    }
+
+    &.btn--il {
+        i {
+            margin-right: spacer();
+        }
+    }
+
+    &.btn--ol {
+        border: 1px solid color(cow);
+    }
+
+    &.btn--io {
+        justify-content: center;
+        width: 51px;
+        height: 51px;
+        font-size: 14px;
+        box-shadow: none;
+    }
+
+    &.btn--small {
+        padding: 6px 27px;
+        font-size: 15px;
+    }
+
+    &.btn--social {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        font-size: 20px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        transition: box-shadow var(--speed-default) var(--cubic-bezier-2), background-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2), border-color var(--speed-default) var(--cubic-bezier-2);
+
+        &:hover {
+            background-color: color(cola);
+            color: color(milk);
+
+            &:not(.btn--io, .btn--social, .btn--text) {
+                box-shadow: 0 4px 30px rgba(color(milk), .6);
+            }
+
+            &.btn--secondary {
+                &:hover {
+                    background-color: color(cola);
+                    color: color(milk);
+                }
+            }
+
+            &.btn--io {
+                background-color: color(baltic);
+            }
+
+            &.btn--ol {
+                border-color: color(cola);
+            }
+        }
+    }
+
+    @each $name, $value in $colors {
+        &.btn--#{$name} {
+            background-color: color($name);
+
+            @media (hover: hover) and (pointer: fine) {
+                &:hover {
+                    background-color: darken(color($name), 10);
+                }
+            }
+
+            @if $name == 'cola' {
+                color: color(milk);
+
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        background-color: lighten(color($name), 10);
+                    }
+                }
+            }
+
+            @if $name == 'barbie' {
+                color: color(purple);
+
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        background-color: color(purple);
+                        color: color(barbie);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: spacer(4);
+    gap: spacer();
+}

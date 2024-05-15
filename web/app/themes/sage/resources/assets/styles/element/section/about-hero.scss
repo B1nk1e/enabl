@@ -1,0 +1,15 @@
+.section--about-hero {
+    text-align: center;
+
+    .hero__title {
+        position: relative;
+        margin: {
+            top: spacer();
+            bottom: spacer(3);
+        }
+    }
+
+    .hero__text {
+        color: rgba(color(milk), .5);
+    }
+}

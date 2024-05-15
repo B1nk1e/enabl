@@ -1,0 +1,45 @@
+/* stylelint-disable color-no-hex  */
+$colors: (
+    // Primary
+    purple: #331732,
+    barbie: #f4b5e5,
+    eminence: #712791,
+    // Secondary
+    chatgtp: #74aa9d,
+    red: #f20,
+    // Grayscale
+    cola: #000,
+    concrete: #878787,
+    ash: #181818,
+    baltic: #272727,
+    dark: #1d1d1d,
+    cow: #b2b2b2,
+    milk: #fff,
+);
+/* stylelint-enable color-no-hex  */
+
+// Color generation
+@function color($color) {
+    @if map-has-key($colors, $color) {
+        @return map-get($colors, $color);
+    }
+
+    @return null;
+}
+
+/* stylelint-disable declaration-no-important */
+@each $name, $value in $colors {
+    .text-#{$name} {
+        color: $value !important;
+
+        > * {
+            color: inherit;
+        }
+    }
+
+    .bg-#{$name} {
+        background-color: $value !important;
+    }
+}
+
+/* stylelint-enable declaration-no-important */

@@ -1,0 +1,45 @@
+.styleguide {
+    background-color: color(cola);
+
+    main {
+        overflow: hidden;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section__header {
+        .section__title {
+            margin-bottom: 0;
+            color: color(milk);
+        }
+    }
+
+    .section__content {
+        margin-top: 40px;
+
+        .holder + .holder {
+            margin-top: 40px;
+
+            @include media-breakpoint-up(md) {
+                margin-top: 0;
+            }
+        }
+
+        &.section__content--spacing-big {
+            margin-top: 70px;
+        }
+    }
+
+    .subtitle {
+        display: block;
+        font: {
+            weight: 700 !important; /* stylelint-disable-line declaration-no-important */
+            size: 15px !important; /* stylelint-disable-line declaration-no-important */
+        }
+        line-height: 1;
+        color: color(milk);
+        text-transform: uppercase;
+    }
+}

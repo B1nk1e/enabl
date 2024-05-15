@@ -1,0 +1,112 @@
+.card.card--news {
+    --mb-news-figure: #{spacer(4)};
+    --mt-card-btn: #{spacer(4)};
+
+    .card-figure {
+        @include responsive-ratio(680, 430);
+        overflow: hidden;
+        display: block;
+        margin-bottom: var(--mb-news-figure);
+        border-radius: var(--border-radius);
+
+        picture,
+        img {
+            @include fill-w-h(true);
+        }
+    }
+
+    .card-btn {
+        display: flex;
+        align-items: center;
+        margin-top: var(--mt-card-btn);
+
+        i {
+            margin-left: spacer(3);
+            font-size: 12px;
+
+            @include media-breakpoint-up(lg) {
+                margin-left: spacer(4);
+            }
+        }
+    }
+
+    &.card--news-latest {
+        --mt-card-btn: 0;
+        --mb-news-figure: 0;
+        overflow: hidden;
+        border-radius: calc(var(--border-radius) * 2);
+
+        .card-figure {
+            border-radius: 0;
+        }
+
+        .card-title {
+            font-size: 20px;
+        }
+
+        .card-inner {
+            background-color: color(milk);
+            color: color(cola);
+        }
+
+        .card-content {
+            padding: spacer(2) spacer(3) spacer(4);
+        }
+
+        .card-btn {
+            justify-content: space-between;
+            border-top: 1px solid rgba(color(cola), .1);
+            padding: spacer(2) spacer(3) spacer(2.5);
+            font-size: 14px;
+            color: rgba(color(cola), .3);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .card-figure {
+            img {
+                transform: scale(1);
+                transition: transform var(--speed-slow) var(--cubic-bezier-2);
+            }
+        }
+
+        .card-btn {
+            transition: color var(--speed-default) var(--cubic-bezier-2), opacity var(--speed-default) var(--cubic-bezier-2);
+
+            i {
+                position: relative;
+                left: 0;
+                transition: left var(--speed-default) var(--cubic-bezier-2);
+            }
+        }
+
+        &:hover {
+            .card-figure {
+                img {
+                    transform: scale(1.1) rotate(-3deg);
+                }
+            }
+
+            .card-btn {
+                i {
+                    left: 4px;
+                }
+            }
+
+            &.card--news-latest {
+                .card-btn {
+                    color: color(cola);
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --mb-news-figure: #{spacer(5)};
+        --mt-card-btn: #{spacer(7)};
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --mb-news-figure: #{spacer(7)};
+    }
+}

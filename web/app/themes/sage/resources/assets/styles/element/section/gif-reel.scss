@@ -1,0 +1,26 @@
+.section--gif-reel {
+    display: flex;
+
+    video,
+    img {
+        width: 100%;
+    }
+
+    ~ .section--text-slider {
+        margin-top: calc(-1 * var(--margin-section));
+
+        @include media-breakpoint-up(lg) {
+            margin-top: calc(-1 * (var(--margin-section) + var(--border-radius-large)));
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        @include responsive-ratio(500, 500, true);
+        position: relative;
+
+        video,
+        img {
+            @include fill-w-h(true);
+        }
+    }
+}

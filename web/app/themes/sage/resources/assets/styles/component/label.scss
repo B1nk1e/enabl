@@ -1,0 +1,30 @@
+.label {
+    display: inline-block;
+    margin-bottom: spacer(2);
+    border-radius: 9999px;
+    padding: spacer(.75) spacer(3);
+    background-color: color(purple);
+    color: color(barbie);
+    font: {
+        size: 14px;
+        weight: 600;
+    }
+
+    &.label--back {
+        background-color: rgba(color(cola), .1);
+        color: color(cola);
+
+        i {
+            margin-right: spacer();
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            transition: background-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2);
+
+            &:hover {
+                background-color: color(cola);
+                color: color(milk);
+            }
+        }
+    }
+}

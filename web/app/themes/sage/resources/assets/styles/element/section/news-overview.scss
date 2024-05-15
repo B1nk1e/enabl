@@ -1,0 +1,91 @@
+.section--news-overview {
+    --gap-news-overview: #{spacer(4)};
+    --mb-news-filter: #{spacer(4)};
+    --py-news-filter: #{spacer(2)};
+    --width-news-card: 100%;
+
+    .news-overview__filtering {
+        margin-bottom: var(--mb-news-filter);
+        
+        .custom-select-wrapper {
+            margin-top: var(--mb-news-filter);
+        }
+    }
+
+    .news-overview__filters {
+        overflow: auto;
+        display: flex;
+        border-bottom: 1px solid rgba(color(milk), .1);
+        padding: {
+            top: var(--py-news-filter);
+            bottom: var(--py-news-filter);
+        }
+        gap: spacer();
+
+        .btn {
+            border: 1px solid transparent;
+            background-color: transparent;
+            color: rgba(color(milk), .3);
+            white-space: nowrap;
+            box-shadow: none;
+
+            &.active {
+                background-color: color(milk);
+                color: color(cola);
+            }
+
+            &:not(.active) {
+                @media (hover: hover) and (pointer: fine) {
+                    transition: border-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2);
+            
+                    &:hover {
+                        border-color: color(milk);
+                        color: color(milk);
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            .btn {
+                border-radius: calc(var(--border-radius) / 2);
+                padding: spacer(.5) spacer(2);
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .news-overview__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap-news-overview);
+
+        .card {
+            flex: 0 0 var(--width-news-card);
+            max-width: var(--width-news-card);
+        }
+    }
+
+    .news-highlight {
+        margin-top: calc(-1 * var(--margin-highlight));
+    }
+
+    @include media-breakpoint-up(md) {
+        --width-news-card: calc(50% - (var(--gap-news-overview) / 2));
+    }
+
+    @include media-breakpoint-up(lg) {
+        --gap-news-overview: #{spacer(6)};
+        --mb-news-filter: #{spacer(7)};
+        --py-news-filter: #{spacer(5)};
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --mb-news-filter: #{spacer(12.5)};
+        --py-news-filter: #{spacer(8)};
+    }
+}

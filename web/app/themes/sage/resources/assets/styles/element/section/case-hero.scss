@@ -1,0 +1,108 @@
+.section--case-hero {
+    --size-hero-btn: 140px;
+    --size-font-btn: 28px;
+    margin-top: calc(-1 * var(--height-navbar));
+    background-color: color(milk);
+    color: color(cola);
+    padding: {
+        top: calc(var(--margin-section) + var(--height-navbar));
+        bottom: var(--margin-section);
+    }
+
+    > .container {
+        position: relative;
+    }
+
+    .button-wrapper {
+        margin: {
+            top: 0;
+            bottom: spacer(2);
+        }
+    }
+
+    h1 {
+        margin-bottom: spacer(3);
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: spacer(5);
+        }
+    }
+
+    .case-hero__btn {
+        position: absolute;
+        right: 20px;
+        bottom: calc(-1 * var(--margin-section));
+        transform: translateY(50%);
+        z-index: 1;
+    }
+
+    .case-hero__btn-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--size-hero-btn);
+        height: var(--size-hero-btn);
+        border-radius: calc(var(--size-hero-btn) / 2);
+        padding: 10px;
+        background-color: color(purple);
+
+        svg {
+            width: 100%;
+            animation: spin-clockwise 20s infinite linear;
+
+            text {
+                font-size: 47px;
+                fill: color(barbie);
+            }
+        }
+
+        @keyframes spin-clockwise {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            transition: background-color var(--speed-default) var(--cubic-bezier-2);
+
+            text {
+                transition: fill var(--speed-default) var(--cubic-bezier-2);
+            }
+
+            &:hover {
+                background-color: color(barbie);
+
+                text {
+                    fill: color(purple);
+                }
+            }
+        }
+    }
+
+    ~ .section--banner {
+        margin-top: calc(-1 * var(--margin-section));
+        background-color: color(milk);
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding-bottom: calc(var(--margin-section) + (var(--size-hero-btn) / 3));
+
+        .case-hero__btn {
+            bottom: calc(-1 * (var(--margin-section) + (var(--size-hero-btn) / 3)));
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --size-hero-btn: 160px;
+        --size-font-btn: 32px;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --size-hero-btn: 220px;
+        --size-font-btn: 47px;
+    }
+}

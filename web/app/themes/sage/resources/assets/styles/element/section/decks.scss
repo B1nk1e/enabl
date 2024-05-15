@@ -1,0 +1,37 @@
+.section--decks {
+    --mt-decks-overview: #{spacer(5)};
+    --width-card-deck: 100%;
+    margin: {
+        top: calc(var(--margin-section) * 1.2);
+        bottom: calc(var(--margin-section) * 1.2);
+    }
+
+    .decks__intro {
+        text-align: center;
+    }
+
+    .decks__title {
+        margin-bottom: spacer(3);
+    }
+
+    .decks__overview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: spacer(3);
+        margin-top: var(--mt-decks-overview);
+
+        .card {
+            flex: 0 0 var(--width-card-deck);
+            max-width: var(--width-card-deck);
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        --width-card-deck: calc(50% - var(--width-grid-gutter));
+    }
+
+    @include media-breakpoint-up(lg) {
+        --mt-decks-overview: #{spacer(10)};
+        --width-card-deck: calc(33.333% - var(--width-grid-gutter));
+    }
+}

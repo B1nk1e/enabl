@@ -1,0 +1,83 @@
+.section--blog-footer {
+    --padding-blog-next: #{spacer(1.5)} #{spacer(10)} #{spacer(1.5)} calc(#{spacer(3)} + var(--border-radius));
+    margin-top: calc(-1 * (var(--margin-section) / 1.75));
+
+    .blog-footer {
+        border-top: 1px solid rgba(color(milk), .1);
+        padding-top: calc(var(--margin-section) / 2.5);
+    }
+
+    .blog-next {
+        overflow: hidden;
+        display: flex;
+        border-radius: var(--border-radius);
+        position: relative;
+
+        .blog-next__anchor {
+            @include fill-w-h;
+        }
+    
+        .blog-next__img {
+            overflow: hidden;
+            width: 125px;
+            border-radius: var(--border-radius);
+            position: relative;
+    
+            picture,
+            img {
+                @include fill-w-h(true);
+            }
+        }
+    
+        .blog-next__content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: calc(-1 * var(--border-radius));
+            padding: var(--padding-blog-next);
+            background-color: color(baltic);
+    
+            i {
+                font-size: 36px;
+                color: color(cow);
+                position: absolute;
+                top: 50%;
+                right: spacer(3);
+                transform: translateY(-50%);
+
+                @include media-breakpoint-up(md) {
+                    font-size: 42px;
+                }
+            }
+        }
+    
+        .blog-next__label {
+            color: color(cow);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .blog-next__img {
+                img {
+                    transition: transform var(--speed-default) var(--cubic-bezier-2);
+                }
+            }
+
+            i {
+                transition: color var(--speed-default) var(--cubic-bezier-2);
+            }
+
+            &:hover {
+                .blog-next__img {
+                    img {
+                        transform: scale(1.1) rotate(-3deg);
+                    }
+                }
+
+                i {
+                    color: color(milk);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+.card.card--deck {
+    --mb-deck-figure: #{spacer(4)};
+
+    .card-figure {
+        @include responsive-ratio(430, 280);
+        overflow: hidden;
+        display: block;
+        margin-bottom: var(--mb-deck-figure);
+
+        picture,
+        img {
+            @include fill-w-h(true);
+        }
+    }
+
+    .card-title {
+        font-weight: 600;
+    }
+
+    .card-text {
+        color: rgba(color(milk), .5);
+    }
+
+    .btn {
+        span {
+            span {
+                margin-left: 4px;
+                color: rgba(color(milk), .5);
+            }
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+
+        .btn {
+            color: rgba(color(milk), .2);
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:not(&.disabled) {
+            .card-figure {
+                img {
+                    transform: scale(1);
+                    transition: transform var(--speed-slow) var(--cubic-bezier-2);
+                }
+            }
+    
+            &:hover {
+                .card-figure {
+                    img {
+                        transform: scale(1.1) rotate(-3deg);
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --mb-deck-figure: #{spacer(6)};
+        padding-right: spacer(4);
+    }
+}

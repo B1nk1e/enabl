@@ -1,0 +1,98 @@
+.pagination {
+    margin-top: var(--margin-section);
+
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        gap: spacer();
+
+        > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: var(--border-radius);
+            background-color: color(milk);
+            font-size: 14px;
+            color: color(cola);
+
+            @media (hover: hover) and (pointer: fine) {
+                transition: background-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2);
+        
+                &:hover {
+                    background-color: rgba(color(milk), .9);
+                    // color: color(milk);
+                }
+            }
+        }
+    }
+
+    .pagination-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border-radius: var(--border-radius);
+        padding: spacer(.6);
+        background-color: color(milk);
+        gap: spacer(.5);
+
+        a,
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 42px;
+            height: 42px;
+            border-radius: var(--border-radius);
+            background-color: transparent;
+            font-weight: 600;
+
+            &.current {
+                background-color: color(cola);
+                color: color(milk);
+            }
+
+            &:not(.current) {
+                @media (hover: hover) and (pointer: fine) {
+                    transition: background-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2);
+            
+                    &:hover {
+                        background-color: rgba(color(cola), .1);
+                    }
+                }
+            }
+        }
+    }
+
+    .prev,
+    .next,
+    .number {
+        @media (hover: hover) and (pointer: fine) {
+            transition: color var(--speed-fast) ease-out;
+        }
+    }
+
+    .number,
+    .ellipsis {
+        padding: 0 20px;
+        font-weight: 700;
+    }
+
+    .btn {
+        margin-top: 0;
+
+        &.previous {
+            margin-right: auto;
+        }
+
+        &.next {
+            margin-left: auto;
+        }
+    }
+
+    .disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}

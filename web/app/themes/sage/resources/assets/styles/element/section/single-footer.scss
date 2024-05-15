@@ -1,0 +1,77 @@
+.section--single-footer {
+    --width-single-item: 100%;
+    --padding-single-item: #{spacer(4)} #{spacer(2.5)};
+    --gap-single: #{spacer(3)};
+
+    .single-footer__grid {
+        display: flex;
+
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+        }
+    }
+
+    .single-footer__item {
+        display: flex;
+        flex: 0 0 var(--width-single-item);
+        flex-direction: column;
+        justify-content: center;
+        max-width: var(--width-single-item);
+        padding: var(--padding-single-item);
+        background-color: color(milk);
+        color: color(cola);
+        text-align: center;
+
+        .single-footer__label {
+            margin-bottom: spacer();
+            font-size: clamp-calculator(12, 14);
+            color: rgba(color(milk), .5);
+        }
+
+        .single-footer__content {
+            margin-top: spacer(2);
+        }
+
+        .button-wrapper {
+            justify-content: center;
+        }
+
+        &:first-child {
+            background-color: color(purple);
+            color: color(milk);
+
+            @include media-breakpoint-up(md) {
+                margin-bottom: var(--gap-single);
+            }
+        }
+
+        &:last-child {
+            @include media-breakpoint-up(md) {
+                margin-top: var(--gap-single);
+            }
+        }
+    }
+
+    &.section--single-footer--cta {
+        border-top: 1px solid rgba(color(milk), .2);
+        padding-top: var(--margin-section);
+
+        .single-footer__item {
+            &:first-child {
+                border: 1px solid rgba(color(milk), .2);
+                background-color: color(cola);
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        --width-single-item: 50%;
+        --padding-single-item: #{spacer(7)} #{spacer(5)};
+        --gap-single: #{spacer(5)};
+    }
+
+    @include media-breakpoint-up(xxl) {
+        --padding-single-item: #{spacer(15)} #{spacer(13)};
+        --gap-single: #{spacer(7.5)};
+    }
+}

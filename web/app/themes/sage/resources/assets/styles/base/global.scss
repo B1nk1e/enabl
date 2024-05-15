@@ -1,0 +1,129 @@
+button {
+    border: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: color(cola);
+    color: color(milk);
+
+    *:focus {
+        outline: none;
+    }
+
+    main {
+        flex-grow: 1;
+        position: relative;
+    }
+
+    &.menu-is-open {
+        overflow: hidden;
+
+        main {
+            overflow: hidden;
+        }
+    }
+
+    &.page-template-contact,
+    &.single-cases,
+    &.single-services,
+    &.blog,
+    &.archive {
+        .navbar {
+            .navbar-brand {
+                .brand {
+                    color: color(cola);
+                }
+            }
+        }
+    }
+
+    &:not(.single-cases, .single-services, .blog, .archive, .page-template-contact) {
+        main {
+            margin-top: var(--margin-section);
+        }
+    }
+}
+
+.container {
+    padding: {
+        right: 20px;
+        left: 20px;
+    }
+}
+
+.row {
+    margin-right: calc(-1 * (var(--width-grid-gutter)) / 2);
+    margin-left: calc(-1 * (var(--width-grid-gutter)) / 2);
+}
+
+[class*='col-'] {
+    padding-right: calc(var(--width-grid-gutter) / 2);
+    padding-left: calc(var(--width-grid-gutter) / 2);
+}
+
+.collapse {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
+
+.collapsing {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height var(--speed-default) ease-in-out; /* stylelint-disable-line plugin/no-low-performance-animation-properties */
+    will-change: max-height;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity .15s linear;
+
+    &.show {
+        opacity: 1;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#app {
+    overflow: hidden;
+    position: relative;
+}
+
+.intro-text {
+    margin-top: spacer(4);
+
+    @include media-breakpoint-up(xxl) {
+        margin-top: spacer(7);
+    }
+}
+
+.page-gradient {
+    width: 65vw;
+    height: 65vw;
+    background: radial-gradient(rgba(color(eminence), .8) 0%, rgba(color(eminence), 0) 75%);
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: -1;
+
+    &.middle {
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+}
+
+.wpml-ls-statics-footer,
+.otgs-development-site-front-end {
+    display: none;
+}

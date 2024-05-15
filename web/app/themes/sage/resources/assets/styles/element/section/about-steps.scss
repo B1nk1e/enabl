@@ -1,0 +1,45 @@
+.section--about-steps {
+    margin-top: calc(-1 * (var(--margin-section) / 2));
+
+    .about-steps__label {
+        margin-bottom: spacer(2);
+    }
+
+    .about-steps {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: var(--margin-section);
+        gap: spacer(3);
+
+        .step__item {
+            opacity: .4;
+            flex: 0 0 100%;
+            transition: opacity var(--speed-slow) var(--cubic-bezier-2);
+
+            &:not(:first-child) {
+                padding-top: calc(var(--margin-section) / 2);
+            }
+
+            &:nth-child(2) {
+                justify-content: center;
+            }
+
+            &:last-child {
+                justify-content: flex-end;
+            }
+
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        .step__key,
+        .step__content {
+            color: color(cow);
+        }
+
+        .step__content {
+            margin-top: spacer(2);
+        }
+    }
+}

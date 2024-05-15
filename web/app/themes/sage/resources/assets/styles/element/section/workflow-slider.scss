@@ -1,0 +1,55 @@
+.section--workflow-slider {
+    --br-workflow: #{spacer(2)};
+    --padding-workflow: #{spacer(3)} #{spacer(3)} #{spacer(4)};
+    --mt-workflow-content: #{spacer(2)};
+
+    .tns-ovh {
+        overflow: visible;
+    }
+
+    .workflow-slide__intro {
+        width: 85%;
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+            margin-bottom: spacer(5);
+            text-align: center;
+
+            .workflow__label {
+                justify-content: center;
+            }
+        }
+    }
+
+    .workflow__label {
+        display: flex;
+        align-items: center;
+        margin-bottom: spacer(2);
+
+        i {
+            margin-right: spacer();
+        }
+    }
+
+    .workflow-slide__title {
+        font-size: clamp-calculator(36, 52);
+    }
+
+    .workflow-slide__inner {
+        height: 100%;
+        border-radius: var(--br-workflow);
+        padding: var(--padding-workflow);
+        background-color: color(ash);
+    }
+
+    .workflow__content {
+        margin-top: var(--mt-workflow-content);
+        color: color(cow);
+    }
+
+    @include media-breakpoint-up(lg) {
+        --br-workflow: #{spacer(3)};
+        --padding-workflow: #{spacer(7.5)} #{spacer(6.25)} #{spacer(9)};
+        --mt-workflow-content: #{spacer(4)};
+    }
+}
